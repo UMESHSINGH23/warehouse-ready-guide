@@ -60,3 +60,16 @@
 @keyframes humanTorso{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(1px) rotate(.4deg)}}
 @media(max-width:900px){.ppe-showcase{margin:0 28px 24px;padding:22px}.ppe-photo-card img{height:210px}}
 @media(max-width:560px){.ppe-showcase{margin:0 12px 20px;padding:17px;border-radius:17px}.ppe-showcase-grid{grid-template-columns:1fr;gap:12px}.ppe-photo-card img{height:210px}.ppe-showcase-heading h2{letter-spacing:-.8px}.ppe-showcase-heading>p:last-child{font-size:13px}}
+
+/* Naturalised gait: smaller limb rotations and almost no vertical bounce. */
+.worker.walking .leg-left{animation:humanLegLeft .82s ease-in-out infinite;}
+.worker.walking .leg-right{animation:humanLegRight .82s ease-in-out infinite;}
+.worker.walking .arm-left{animation:humanArmLeft .82s ease-in-out infinite;}
+.worker.walking .arm-right{animation:humanArmRight .82s ease-in-out infinite;}
+.worker.walking .torso{animation:humanTorso .82s ease-in-out infinite;transform-origin:50% 0;}
+@keyframes arrive{0%{left:24%;transform:translateX(0) scale(.88)}8%{left:24%;transform:translateX(0) scale(.88)}76%{left:39%;transform:translateX(0) scale(.88)}100%{left:40%;transform:translateX(0) scale(.88)}}
+@keyframes humanLegLeft{0%,100%{transform:rotate(7deg)}50%{transform:rotate(-8deg)}}
+@keyframes humanLegRight{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(7deg)}}
+@keyframes humanArmLeft{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(6deg)}}
+@keyframes humanArmRight{0%,100%{transform:rotate(6deg)}50%{transform:rotate(-5deg)}}
+@keyframes humanTorso{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(.5px) rotate(.2deg)}}
