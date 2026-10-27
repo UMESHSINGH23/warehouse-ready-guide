@@ -40,9 +40,12 @@
     clearTimers();
     scanFlash.classList.remove('show');
     scene.classList.remove('replay');
+    worker.classList.remove('walking');
     worker.style.animation = 'none';
     void worker.offsetWidth;
     worker.style.animation = '';
+    worker.classList.add('walking');
+    timer.push(setTimeout(() => worker.classList.remove('walking'), 4700));
     setStep(1);
     timer.push(setTimeout(() => setStep(2), 2800));
     timer.push(setTimeout(() => setStep(3), 5700));

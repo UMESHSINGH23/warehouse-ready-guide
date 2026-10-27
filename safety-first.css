@@ -36,3 +36,27 @@
 .badge{background:linear-gradient(120deg,#fff,#dbe5ed);box-shadow:1px 2px 3px #14202c55;border-color:#aebbc7}
 @keyframes bootStep{0%,100%{filter:brightness(1)}50%{filter:brightness(1.12)}}
 @media(prefers-reduced-motion:reduce){.boot,.worker,.leg,.arm,.scanner-beam{animation:none!important}}
+
+
+/* PPE photo showcase: high-resolution visual references above the arrival simulation. */
+.ppe-showcase{margin:0 28px 28px;padding:28px;background:linear-gradient(135deg,#fff,#f8fafc);border:1px solid var(--line);border-radius:22px;box-shadow:0 14px 38px rgba(24,34,50,.055)}
+.ppe-showcase-heading{max-width:760px;margin-bottom:20px}.ppe-showcase-heading h2{font-size:clamp(25px,3vw,35px);line-height:1.1;letter-spacing:-1.2px;margin:0 0 9px}.ppe-showcase-heading>p:last-child{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+.ppe-showcase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.ppe-photo-card{min-width:0;overflow:hidden;border:1px solid #e3e7ed;border-radius:16px;background:#fff;box-shadow:0 8px 22px #1c2b3a0b}.ppe-photo-card img{display:block;width:100%;height:245px;object-fit:cover;background:#e8edf2}.ppe-photo-card:first-child img{object-position:center 56%}.ppe-photo-card:nth-child(2) img{object-position:center 48%}.ppe-photo-caption{display:flex;gap:13px;padding:17px 18px 19px;align-items:flex-start}.ppe-photo-icon{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:10px;background:#fff1d0;color:#825500;font-size:11px;font-weight:900}.ppe-photo-caption h3{font-size:16px;margin:0 0 4px;letter-spacing:-.3px}.ppe-photo-caption p{font-size:12px;line-height:1.6;color:var(--muted);margin:0}.ppe-credit{font-size:10px;color:#7b8492;margin:14px 2px 0}.ppe-credit a{color:#536274;text-underline-offset:2px}
+/* A restrained, alternating human gait replaces the constant swinging that looked dance-like. */
+.worker{animation:arrive 4.7s cubic-bezier(.22,.68,.2,1) 1 both;}
+.worker.walking .leg-left{animation:humanLegLeft .72s ease-in-out infinite;}
+.worker.walking .leg-right{animation:humanLegRight .72s ease-in-out infinite;}
+.worker.walking .arm-left{animation:humanArmLeft .72s ease-in-out infinite;}
+.worker.walking .arm-right{animation:humanArmRight .72s ease-in-out infinite;}
+.worker.walking .torso{animation:humanTorso .72s ease-in-out infinite;transform-origin:50% 0;}
+.worker .leg-left,.worker .leg-right,.worker .arm-left,.worker .arm-right,.worker .torso{animation-play-state:running;}
+.worker:not(.walking) .leg-left,.worker:not(.walking) .leg-right,.worker:not(.walking) .arm-left,.worker:not(.walking) .arm-right,.worker:not(.walking) .torso{animation:none!important;}
+.worker .leg-left{transform-origin:50% 4px}.worker .leg-right{transform-origin:50% 4px}.worker .arm-left{transform-origin:50% 6px}.worker .arm-right{transform-origin:50% 6px}
+@keyframes arrive{0%{left:24%;transform:translateX(0) scale(.88)}72%{left:39%;transform:translateX(0) scale(.88)}100%{left:40%;transform:translateX(0) scale(.88)}}
+@keyframes humanLegLeft{0%,100%{transform:rotate(13deg)}50%{transform:rotate(-15deg)}}
+@keyframes humanLegRight{0%,100%{transform:rotate(-15deg)}50%{transform:rotate(13deg)}}
+@keyframes humanArmLeft{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(14deg)}}
+@keyframes humanArmRight{0%,100%{transform:rotate(14deg)}50%{transform:rotate(-12deg)}}
+@keyframes humanTorso{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(1px) rotate(.4deg)}}
+@media(max-width:900px){.ppe-showcase{margin:0 28px 24px;padding:22px}.ppe-photo-card img{height:210px}}
+@media(max-width:560px){.ppe-showcase{margin:0 12px 20px;padding:17px;border-radius:17px}.ppe-showcase-grid{grid-template-columns:1fr;gap:12px}.ppe-photo-card img{height:210px}.ppe-showcase-heading h2{letter-spacing:-.8px}.ppe-showcase-heading>p:last-child{font-size:13px}}
