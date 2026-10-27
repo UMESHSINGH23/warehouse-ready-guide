@@ -1,34 +1,15 @@
-# WarehouseReady — independent warehouse starter guide
+# WarehouseReady revised website files
 
-A responsive, static learning website for new warehouse workers in Germany. It includes English/German interface labels, beginner modules, a safety reminder, a German vocabulary list, and a general knowledge quiz.
+Upload these files directly into the ROOT of your existing GitHub Pages repository, alongside one another:
 
-## Important scope and disclaimer
-- This is an independent educational project and is **not affiliated with, endorsed by, or an official training resource for Amazon**.
-- Do not add confidential employer information, internal system screenshots, credentials, restricted procedures, or employee personal data.
-- This site does not replace mandatory employer induction, site-specific safety training, or instructions from authorised trainers.
-- Review all content for your own workplace before sharing it with colleagues.
+- `index.html` — homepage with larger Start learning and Safety first buttons and the PPE image replacing the starter-path panel. The Safety first button opens `safety-first.html`.
+- `styles.css` — homepage styles, larger buttons, responsive PPE image panel.
+- `script.js` — existing homepage interactions and EN/DE translations.
+- `safety-first.html` — safety induction page with PPE image and warehouse arrival simulation.
+- `safety-first.css` — safety page styling and larger controls.
+- `safety-first.js` — safety page animation and language toggle.
+- `safety-ppe.png` — bundled safety boots and orange high-visibility vest image used by both pages.
 
-## Preview locally
-Open `index.html` in a modern browser. No build tools or server are required.
+Keep all seven files in the repository root (same level as `index.html`); do not put them in a subfolder. Commit the changes to the `main` branch and wait for GitHub Pages to deploy.
 
-## Publish using GitHub Pages
-1. Sign in to GitHub and create a new repository, for example `warehouse-ready-guide`.
-2. Upload `index.html`, `styles.css`, `script.js`, and `README.md` to the repository root.
-3. Open the repository's **Settings → Pages**.
-4. Under **Build and deployment**, select **Deploy from a branch**.
-5. Choose the `main` branch and `/(root)` folder, then save.
-6. Wait for the deployment to finish. GitHub will show the published Pages URL in Settings → Pages.
-
-Official instructions: https://docs.github.com/en/pages/getting-started-with-github-pages
-
-## Editing the content
-- Edit the lesson content in the `lessons` object in `script.js`.
-- Edit English and German interface labels in `translations` in `script.js`.
-- Edit the visual style in `styles.css`.
-- The lesson-completion status is stored in the visitor's browser using `localStorage`. There is no user account, central progress tracking, or server-side data collection.
-
-## Before publishing
-- Test on a phone and desktop.
-- Check English and German text.
-- Confirm that safety content matches only general safe-work guidance and does not conflict with official site training.
-- Keep the independent-project disclaimer visible.
+The attendance sheet and scanner are illustrative only and do not record actual attendance. This is an independent learning resource and not official employer training.
