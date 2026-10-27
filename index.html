@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Independent beginner guide for warehouse workers in Germany: safety, common terms, work routines and practice quizzes.">
+  <title>Warehouse Ready | New Starter Guide</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Warehouse Ready home"><span class="brand-mark">WR</span><span>Warehouse<span class="brand-light">Ready</span></span></a>
+    <nav class="top-actions" aria-label="Main controls">
+      <label class="language-label" for="language">Language</label>
+      <select id="language" aria-label="Choose language">
+        <option value="en">English</option>
+        <option value="de">Deutsch</option>
+      </select>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">◐</button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow" data-i18n="eyebrow">A practical starter guide · Germany</div>
+        <h1 data-i18n="heroTitle">Start your warehouse job with confidence.</h1>
+        <p class="hero-subtitle" data-i18n="heroText">Simple guidance for new warehouse workers: learn common terms, work safely, understand daily routines and practise what you have learned.</p>
+        <div class="hero-buttons">
+          <a class="button button-primary" href="#learning-path" data-i18n="startLearning">Start learning <span aria-hidden="true">→</span></a>
+          <a class="button button-secondary" href="#safety" data-i18n="safetyFirst">Safety first</a>
+        </div>
+        <p class="notice"><strong data-i18n="important">Important:</strong> <span data-i18n="noticeText">This is an independent learning resource, not official employer training. Follow your site's instructions and ask your trainer whenever unsure.</span></p>
+      </div>
+      <div class="hero-card" aria-label="Learning overview">
+        <div class="hero-card-top"><span class="pulse"></span><span data-i18n="starterPath">YOUR STARTER PATH</span></div>
+        <div class="progress-label"><span data-i18n="modules">Learning modules</span><strong id="progressText">0 / 6</strong></div>
+        <div class="progress-track"><div id="progressBar" class="progress-fill"></div></div>
+        <div class="mini-steps">
+          <div><span class="step-icon">✓</span><span data-i18n="stepOne">Understand the basics</span></div>
+          <div><span class="step-icon">✓</span><span data-i18n="stepTwo">Learn safe work habits</span></div>
+          <div><span class="step-icon">✓</span><span data-i18n="stepThree">Practise with a quiz</span></div>
+        </div>
+        <p class="small-muted" data-i18n="progressSaved">Your progress is saved in this browser only.</p>
+      </div>
+    </section>
+
+    <section class="stats-row" aria-label="Guide features">
+      <div><strong>06</strong><span data-i18n="statModules">Starter modules</span></div>
+      <div><strong>EN / DE</strong><span data-i18n="statLanguages">Two languages</span></div>
+      <div><strong>5 min</strong><span data-i18n="statLessons">Short lessons</span></div>
+      <div><strong>✓</strong><span data-i18n="statQuiz">Knowledge check</span></div>
+    </section>
+
+    <section class="section" id="learning-path">
+      <div class="section-heading">
+        <div><div class="eyebrow" data-i18n="learningPath">LEARNING PATH</div><h2 data-i18n="chooseTopic">Choose a topic</h2></div>
+        <p data-i18n="topicIntro">Work through the modules in order, or open the topic you need right now.</p>
+      </div>
+      <div class="module-grid" id="moduleGrid">
+        <button class="module-card" data-module="first-day"><span class="module-number">01</span><span class="module-icon">🧭</span><span class="module-title" data-i18n="m1title">Your first day</span><span class="module-desc" data-i18n="m1desc">What to ask, bring and confirm.</span><span class="module-link" data-i18n="openLesson">Open lesson →</span></button>
+        <button class="module-card" data-module="safety"><span class="module-number">02</span><span class="module-icon">🦺</span><span class="module-title" data-i18n="m2title">Health & safety</span><span class="module-desc" data-i18n="m2desc">Protect yourself and your team.</span><span class="module-link" data-i18n="openLesson">Open lesson →</span></button>
+        <button class="module-card" data-module="workflow"><span class="module-number">03</span><span class="module-icon">📦</span><span class="module-title" data-i18n="m3title">Warehouse workflow</span><span class="module-desc" data-i18n="m3desc">Receiving, storage, picking and dispatch.</span><span class="module-link" data-i18n="openLesson">Open lesson →</span></button>
+        <button class="module-card" data-module="quality"><span class="module-number">04</span><span class="module-icon">🔎</span><span class="module-title" data-i18n="m4title">Accuracy & quality</span><span class="module-desc" data-i18n="m4desc">Reduce mistakes without rushing.</span><span class="module-link" data-i18n="openLesson">Open lesson →</span></button>
+        <button class="module-card" data-module="german"><span class="module-number">05</span><span class="module-icon">💬</span><span class="module-title" data-i18n="m5title">German at work</span><span class="module-desc" data-i18n="m5desc">Useful phrases and common terms.</span><span class="module-link" data-i18n="openLesson">Open lesson →</span></button>
+        <button class="module-card" data-module="rights"><span class="module-number">06</span><span class="module-icon">🕒</span><span class="module-title" data-i18n="m6title">Shifts & workplace basics</span><span class="module-desc" data-i18n="m6desc">Breaks, timekeeping and asking for help.</span><span class="module-link" data-i18n="openLesson">Open lesson →</span></button>
+      </div>
+    </section>
+
+    <section class="lesson-area" id="lessonArea" hidden>
+      <div class="lesson-top"><span class="eyebrow" data-i18n="lesson">LESSON</span><button class="text-button" id="closeLesson" data-i18n="close">✕ Close</button></div>
+      <div id="lessonContent"></div>
+      <div class="lesson-footer"><button class="button button-primary" id="markComplete" data-i18n="markComplete">Mark as completed ✓</button><span id="lessonStatus" aria-live="polite"></span></div>
+    </section>
+
+    <section class="section safety-section" id="safety">
+      <div class="safety-banner">
+        <div class="safety-symbol">!</div>
+        <div><div class="eyebrow" data-i18n="nonNegotiable">NON-NEGOTIABLE</div><h2 data-i18n="stopUnsafe">If a task feels unsafe, stop and ask.</h2><p data-i18n="safetyBannerText">Never guess how to use equipment, enter restricted areas or handle an unknown hazard. Follow site training, posted signs and your supervisor's instructions.</p></div>
+      </div>
+      <div class="safety-grid">
+        <article><span>01</span><h3 data-i18n="safe1title">Use required PPE</h3><p data-i18n="safe1text">Wear the protective equipment required for your work area and check that it fits properly.</p></article>
+        <article><span>02</span><h3 data-i18n="safe2title">Keep routes clear</h3><p data-i18n="safe2text">Do not block walkways, emergency exits, fire equipment or marked vehicle routes.</p></article>
+        <article><span>03</span><h3 data-i18n="safe3title">Report hazards</h3><p data-i18n="safe3text">Report spills, damaged goods, unsafe equipment and near misses promptly.</p></article>
+        <article><span>04</span><h3 data-i18n="safe4title">Don't bypass training</h3><p data-i18n="safe4text">Do not operate powered equipment unless trained and authorised by your employer.</p></article>
+      </div>
+    </section>
+
+    <section class="section quiz-section" id="quiz">
+      <div class="section-heading">
+        <div><div class="eyebrow" data-i18n="knowledgeCheck">KNOWLEDGE CHECK</div><h2 data-i18n="testYourself">Test your understanding</h2></div>
+        <p data-i18n="quizIntro">A short general quiz. Your employer's procedures and training always take priority.</p>
+      </div>
+      <div class="quiz-card">
+        <div class="quiz-progress"><span id="quizCount">Question 1 of 5</span><span id="quizScore"></span></div>
+        <div class="quiz-track"><div id="quizBar"></div></div>
+        <h3 id="questionText"></h3>
+        <div id="answerOptions" class="answer-options"></div>
+        <p id="feedback" class="feedback" aria-live="polite"></p>
+        <div class="quiz-controls"><button id="nextQuestion" class="button button-primary" disabled data-i18n="nextQuestion">Next question →</button><button id="restartQuiz" class="text-button" data-i18n="restartQuiz">Restart quiz</button></div>
+      </div>
+    </section>
+
+    <section class="section glossary-section">
+      <div class="section-heading"><div><div class="eyebrow" data-i18n="quickReference">QUICK REFERENCE</div><h2 data-i18n="germanTerms">Useful German warehouse terms</h2></div><p data-i18n="glossaryIntro">Use these as a starting point; local wording may differ.</p></div>
+      <div class="glossary" id="glossary">
+        <div><strong>die Schicht</strong><span>shift</span></div><div><strong>die Pause</strong><span>break</span></div><div><strong>der Wareneingang</strong><span>goods receiving</span></div><div><strong>der Warenausgang</strong><span>goods dispatch</span></div><div><strong>die Bestellung</strong><span>order</span></div><div><strong>der Lagerbestand</strong><span>stock / inventory</span></div><div><strong>die Sicherheitsweste</strong><span>high-visibility vest</span></div><div><strong>die Beschädigung</strong><span>damage</span></div><div><strong>die Arbeitsanweisung</strong><span>work instruction</span></div><div><strong>die Führungskraft</strong><span>supervisor / manager</span></div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div><div class="eyebrow" data-i18n="keepLearning">KEEP LEARNING</div><h2 data-i18n="confidenceComes">Confidence comes from safe practice.</h2><p data-i18n="ctaText">Ask questions, follow the correct process and learn one thing each shift.</p></div>
+      <a class="button button-light" href="#learning-path" data-i18n="reviewModules">Review modules ↑</a>
+    </section>
+  </main>
+  <footer><span>WarehouseReady</span><span data-i18n="footerNote">Independent educational project · Not affiliated with or endorsed by Amazon.</span><a href="#main" data-i18n="backTop">Back to top ↑</a></footer>
+  <script src="script.js"></script>
+</body>
+</html>
