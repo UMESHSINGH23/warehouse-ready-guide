@@ -29,19 +29,42 @@ const moduleKeys=["first-day","safety","workflow","quality","german","rights"];
 function completed(){try{return JSON.parse(localStorage.getItem("wr-completed")||"[]")}catch(e){return []}}
 function updateProgress(){const done=completed();$("progressText").textContent=`${done.length} / 6`; $("progressBar").style.width=(done.length/6*100)+"%";document.querySelectorAll(".module-card").forEach(c=>c.classList.toggle("completed",done.includes(c.dataset.module)));document.querySelectorAll(".module-card").forEach(c=>{const s=c.querySelector(".module-link");if(done.includes(c.dataset.module))s.textContent=lang==="de"?"✓ Erledigt · Lektion öffnen →":"✓ Completed · Open lesson →";});}
 function renderLesson(key){currentModule=key;const l=lessons[key];const i=lang==="de"?1:0;let html=`<h2>${l.title[i]}</h2><p>${l.intro[i]}</p>`;for(const s of l.sections){html+=`<h3>${s[i]}</h3><ul>${s[2].map(t=>`<li>${t}</li>`).join("")}</ul>`} $("lessonContent").innerHTML=html;$("lessonArea").hidden=false;const done=completed().includes(key);$("markComplete").textContent=done?(lang==="de"?"✓ Bereits erledigt":"✓ Completed"):(lang==="de"?"Als erledigt markieren ✓":"Mark as completed ✓");$("lessonStatus").textContent=done?(lang==="de"?"Fortschritt gespeichert":"Progress saved"):"";$("lessonArea").scrollIntoView({behavior:"smooth",block:"start"});}
+// Navigate each learning module to its separate HTML webpage
+
 document.querySelectorAll(".module-card").forEach(c => {
+
   c.addEventListener("click", () => {
 
-    // Lesson 01: Open the separate On Time Arrival webpage
-    if (c.dataset.module === "first-day") {
-      window.location.href = "./lesson-01.html";
+    const lessonPages = {
+
+      "first-day": "lesson-01.html",
+
+      "safety": "lesson-02.html",
+
+      "workflow": "lesson-03.html",
+
+      "quality": "lesson-04.html",
+
+      "german": "lesson-05.html",
+
+      "rights": "lesson-06.html"
+
+    };
+
+    const page = lessonPages[c.dataset.module];
+
+    if (page) {
+
+      window.location.href = "./" + page;
+
       return;
+
     }
 
-    // Lessons 02–06: Keep existing functionality
     renderLesson(c.dataset.module);
 
   });
+
 });
 $("closeLesson").addEventListener("click",()=>{$("lessonArea").hidden=true;currentModule=null;});
 $("markComplete").addEventListener("click",()=>{if(!currentModule)return;let done=completed();if(!done.includes(currentModule))done.push(currentModule);localStorage.setItem("wr-completed",JSON.stringify(done));updateProgress();$("markComplete").textContent=lang==="de"?"✓ Erledigt":"✓ Completed";$("lessonStatus").textContent=lang==="de"?"Fortschritt gespeichert":"Progress saved";});
