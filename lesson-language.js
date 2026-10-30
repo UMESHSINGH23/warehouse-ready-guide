@@ -3,7 +3,7 @@
  WAREHOUSE READY
  Shared English / German Language System
  File: lesson-language.js
- Supports: Lessons 01–06
+ Supports Lessons 01–06
 =========================================================
 */
 
@@ -12,11 +12,9 @@
 
   const LANGUAGE_KEY = "wr-language";
 
-  /*
-  =======================================================
-  1. ENGLISH TO GERMAN TRANSLATION DICTIONARY
-  =======================================================
-  */
+  // =====================================================
+  // 1. ENGLISH TO GERMAN TRANSLATION DICTIONARY
+  // =====================================================
 
   const EN_TO_DE = {
 
@@ -41,9 +39,12 @@
     "Lesson 5 of 6": "Lektion 5 von 6",
     "Lesson 6 of 6": "Lektion 6 von 6",
 
+    // ===================================================
     // LESSON 01 - ON TIME ARRIVAL
+    // ===================================================
 
     "On Time Arrival": "Pünktliches Erscheinen",
+
     "On-time check-in, according to your assigned shift.":
       "Pünktlich einchecken – entsprechend deiner eingeteilten Schicht.",
 
@@ -107,7 +108,9 @@
     "Do not start work before your shift or change shifts without approval.":
       "Beginne nicht vor deiner Schicht und ändere deine Schicht nicht ohne Genehmigung.",
 
+    // ===================================================
     // LESSON 02 - SAFETY BOOTS AND JACKET
+    // ===================================================
 
     "Wear Safety Boots and Jacket":
       "Sicherheitsschuhe und Warnjacke tragen",
@@ -186,7 +189,9 @@
     "PPE does not replace safe behaviour, training or following instructions.":
       "PSA ersetzt weder sicheres Verhalten noch Schulungen oder das Befolgen von Anweisungen.",
 
+    // ===================================================
     // LESSON 03 - WAREHOUSE WORKFLOW
+    // ===================================================
 
     "Warehouse workflow": "Lagerabläufe",
     "Warehouse Workflow": "Lagerabläufe",
@@ -252,7 +257,9 @@
     "Report a mismatch before the goods leave your work area.":
       "Melde Abweichungen, bevor die Waren deinen Arbeitsbereich verlassen.",
 
+    // ===================================================
     // LESSON 04 - ACCURACY AND QUALITY
+    // ===================================================
 
     "Accuracy & quality": "Genauigkeit und Qualität",
     "Accuracy & Quality": "Genauigkeit und Qualität",
@@ -299,9 +306,12 @@
     "Follow the approved correction process; never hide an error or create an unauthorised scan.":
       "Befolge das freigegebene Korrekturverfahren. Verheimliche niemals Fehler und erstelle keine unzulässigen Scans.",
 
+    // ===================================================
     // LESSON 05 - BREAK / PAUSE TIMING
+    // ===================================================
 
     "Adhere Break/Pause timing": "Pausenzeiten einhalten",
+
     "Adhere to Break / Pause Timing": "Pausenzeiten einhalten",
 
     "Take breaks at the assigned time and follow your warehouse's timekeeping procedure.":
@@ -346,7 +356,9 @@
     "Ask your supervisor or HR how breaks are arranged and recorded for your specific shift.":
       "Frage deine Führungskraft oder die Personalabteilung, wie Pausen für deine konkrete Schicht geregelt und erfasst werden.",
 
+    // ===================================================
     // LESSON 06 - GROWTH AND PROGRESS
+    // ===================================================
 
     "Growth & Progress": "Entwicklung und Fortschritt",
 
@@ -400,16 +412,9 @@
   };
 
 
-  /*
-  =======================================================
-  2. ORIGINAL TEXT STORAGE
-
-  English is the permanent source.
-  German is generated from the original English text.
-
-  This eliminates the reverse-translation problem.
-  =======================================================
-  */
+  // =====================================================
+  // 2. ORIGINAL TEXT STORAGE
+  // =====================================================
 
   const originalText = new WeakMap();
   const lastRenderedText = new WeakMap();
@@ -421,11 +426,15 @@
   function getLanguage() {
 
     try {
+
       return localStorage.getItem(LANGUAGE_KEY) === "de"
         ? "de"
         : "en";
+
     } catch (error) {
+
       return "en";
+
     }
 
   }
@@ -434,9 +443,13 @@
   function saveLanguage(language) {
 
     try {
+
       localStorage.setItem(LANGUAGE_KEY, language);
+
     } catch (error) {
+
       console.warn("Could not save language preference:", error);
+
     }
 
   }
@@ -452,17 +465,16 @@
   }
 
 
-  /*
-  =======================================================
-  3. TRANSLATE TEXT NODES
-  =======================================================
-  */
+  // =====================================================
+  // 3. TRANSLATE TEXT NODES
+  // =====================================================
 
   function translateTextNode(node, language) {
 
     const currentText = node.nodeValue;
 
-    // Detect changes made by other scripts.
+    // Detect text changes made by other scripts.
+
     if (
       lastRenderedText.has(node) &&
       currentText !== lastRenderedText.get(node)
@@ -472,7 +484,6 @@
 
     }
 
-    // Save original English text.
     if (!originalText.has(node)) {
 
       originalText.set(node, currentText);
@@ -502,7 +513,8 @@
 
     }
 
-    // English restores the original text directly.
+    // English always restores the original text.
+
     node.nodeValue = result;
 
     lastRenderedText.set(node, result);
@@ -510,11 +522,9 @@
   }
 
 
-  /*
-  =======================================================
-  4. TRANSLATE HTML ATTRIBUTES
-  =======================================================
-  */
+  // =====================================================
+  // 4. TRANSLATE HTML ATTRIBUTES
+  // =====================================================
 
   function translateAttribute(element, attribute, language) {
 
@@ -540,7 +550,6 @@
 
     const currentValue = element.getAttribute(attribute);
 
-    // Detect changes made by other scripts.
     if (
       attribute in rendered &&
       currentValue !== rendered[attribute]
@@ -564,7 +573,10 @@
 
     let result = original;
 
-    if (language === "de" && EN_TO_DE[key] !== undefined) {
+    if (
+      language === "de" &&
+      EN_TO_DE[key] !== undefined
+    ) {
 
       result = EN_TO_DE[key];
 
@@ -577,11 +589,9 @@
   }
 
 
-  /*
-  =======================================================
-  5. TRANSLATE COMPLETE PAGE
-  =======================================================
-  */
+  // =====================================================
+  // 5. TRANSLATE COMPLETE PAGE
+  // =====================================================
 
   function translatePage(language) {
 
@@ -608,11 +618,9 @@
           }
 
           if (
-
             parent.closest(
               "script, style, noscript, textarea, code, pre"
             )
-
           ) {
 
             return NodeFilter.FILTER_REJECT;
@@ -643,23 +651,17 @@
     });
 
 
-    // Translate accessibility and input attributes.
+    // Translate placeholders, titles and accessibility labels.
 
     document.querySelectorAll(
-
       "[placeholder], [title], [aria-label]"
-
     ).forEach(element => {
 
       ["placeholder", "title", "aria-label"].forEach(attribute => {
 
         if (element.hasAttribute(attribute)) {
 
-          translateAttribute(
-            element,
-            attribute,
-            language
-          );
+          translateAttribute(element, attribute, language);
 
         }
 
@@ -691,7 +693,7 @@
     });
 
 
-    // Inform other scripts.
+    // Notify other scripts.
 
     document.dispatchEvent(
 
@@ -710,11 +712,9 @@
   }
 
 
-  /*
-  =======================================================
-  6. CHANGE LANGUAGE
-  =======================================================
-  */
+  // =====================================================
+  // 6. CHANGE LANGUAGE
+  // =====================================================
 
   function setLanguage(language) {
 
@@ -729,11 +729,9 @@
   }
 
 
-  /*
-  =======================================================
-  7. INITIALISE LANGUAGE SYSTEM
-  =======================================================
-  */
+  // =====================================================
+  // 7. INITIALISE
+  // =====================================================
 
   function initialise() {
 
@@ -762,7 +760,7 @@
     translatePage(getLanguage());
 
 
-    // Public API.
+    // Make functions available to other scripts.
 
     window.WarehouseReadyLanguage = {
 
@@ -783,17 +781,16 @@
   }
 
 
-  /*
-  =======================================================
-  8. START
-  =======================================================
-  */
+  // =====================================================
+  // 8. START LANGUAGE SYSTEM
+  // =====================================================
 
   if (document.readyState === "loading") {
 
     document.addEventListener(
       "DOMContentLoaded",
       initialise
+
     );
 
   } else {
