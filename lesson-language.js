@@ -409,6 +409,63 @@
 
     "Treat colleagues respectfully and follow workplace rules.":
       "Behandle Kolleginnen und Kollegen respektvoll und halte die betrieblichen Regeln ein."
+
+    ""Useful warehouse terms": "Wichtige Lagerbegriffe",
+
+"Understand terms related to your job responsibility":
+"Verstehe die Begriffe, die für deine Aufgaben im Lager wichtig sind.",
+
+"PDEQ 001 Its a Lable number pasted on final pakeged box":
+"PDEQ 001 ist eine Etikettennummer, die auf dem fertig verpackten Karton angebracht wird.",
+
+"Its also a packaged lable numbers other than PDEQ001 such as PDEQ003, PDEQ007, PDEQ006, PDEQ 010":
+"Weitere Etikettennummern für verpackte Kartons sind beispielsweise PDEQ 003, PDEQ 007, PDEQ 006 und PDEQ 010.",
+
+"Its is also another label number of final pakaged box CDE9, MHG9 & if nothing mentioned a blank lable number is also known as CDE9":
+"CDE9, MHG9 und ein leeres Etikett, wenn keine Etikettennummer angegeben ist.",
+
+"Steel cadged manual moving cart for picking":
+"Ein manueller Rollwagen aus Stahl mit Gitterwänden für die Kommissionierung.",
+
+"Box for packing single bottel":
+"Karton für eine einzelne Flasche",
+
+"1.7 litr box":
+"1,7-Liter-Karton",
+
+"Box for packing single bigger sized bottles":
+"Karton für einzelne größere Flaschen",
+
+"boxes for packing bottles":
+"Kartons für Flaschen",
+
+"An Order of different brands of bottles to be packed in one box":
+"Ein Auftrag, bei dem Flaschen verschiedener Marken in einem Karton verpackt werden.",
+
+"An order of single bottle or single set of bottles":
+"Ein Auftrag für eine einzelne Flasche oder ein einzelnes Flaschenset.",
+
+"Work stations where multi orders are being packed":
+"Arbeitsplätze, an denen Sammelaufträge verpackt werden.",
+
+"Work stations where single orders are being packed":
+"Arbeitsplätze, an denen Einzelaufträge verpackt werden.",
+
+"Multi Order":
+"Sammelauftrag",
+
+"Single Order":
+"Einzelauftrag",
+
+"Multi order pack station":
+"Packstation für Sammelaufträge",
+
+"Single Order Pack station":
+"Packstation für Einzelaufträge",
+
+"3,6,9 & 12 bottle box":
+"Kartons für 3, 6, 9 und 12 Flaschen"
+   
   };
 
 
