@@ -1,17 +1,27 @@
 /*
- * WarehouseReady - English / German Language System
- * File: lesson-language.js
- */
+=========================================================
+ WAREHOUSE READY
+ Shared English / German Language System
+ File: lesson-language.js
+ Supports: Lessons 01–06
+=========================================================
+*/
 
 (function () {
   "use strict";
 
   const LANGUAGE_KEY = "wr-language";
 
-  // English to German translation dictionary
+  /*
+  =======================================================
+  1. ENGLISH TO GERMAN TRANSLATION DICTIONARY
+  =======================================================
+  */
+
   const EN_TO_DE = {
 
     // GENERAL
+
     "Language": "Sprache",
     "LESSON": "LEKTION",
     "Back to learning path": "Zurück zum Lernpfad",
@@ -32,21 +42,19 @@
     "Lesson 6 of 6": "Lektion 6 von 6",
 
     // LESSON 01 - ON TIME ARRIVAL
+
     "On Time Arrival": "Pünktliches Erscheinen",
     "On-time check-in, according to your assigned shift.":
       "Pünktlich einchecken – entsprechend deiner eingeteilten Schicht.",
 
     "Our Shift Timings": "Unsere Schichtzeiten",
+
     "Please arrive on time according to your assigned shift.":
       "Bitte erscheine pünktlich zu deiner eingeteilten Schicht.",
 
     "Early Shift": "Frühschicht",
     "Late Shift": "Spätschicht",
     "Night Shift": "Nachtschicht",
-
-    "06:00 AM – 02:00 PM": "06:00 – 14:00 Uhr",
-    "02:00 PM – 10:00 PM": "14:00 – 22:00 Uhr",
-    "10:00 PM – 06:00 AM": "22:00 – 06:00 Uhr",
 
     "Including Saturdays": "Auch samstags",
     "Monday to Sunday, as rostered": "Montag bis Sonntag laut Dienstplan",
@@ -56,18 +64,22 @@
       "Warum ist pünktliches Erscheinen wichtig?",
 
     "Smooth operations": "Reibungsloser Ablauf",
+
     "Helps the team start work without delay.":
       "Das Team kann ohne Verzögerung mit der Arbeit beginnen.",
 
     "Safe workplace": "Sicherer Arbeitsplatz",
+
     "Allows time for the safety briefing and preparation.":
       "Es bleibt genügend Zeit für die Sicherheitseinweisung und Vorbereitung.",
 
     "Better productivity": "Bessere Produktivität",
+
     "Keeps receiving, storage, picking and dispatch on schedule.":
       "Wareneingang, Lagerung, Kommissionierung und Versand bleiben im Zeitplan.",
 
     "Respect for the team": "Respekt gegenüber dem Team",
+
     "Helps colleagues work efficiently and plan handovers.":
       "Kolleginnen und Kollegen können effizient arbeiten und Übergaben planen.",
 
@@ -79,6 +91,9 @@
 
     "Bring your employee ID badge. Scan it at the start and end of your shift, as required.":
       "Bringe deinen Mitarbeiterausweis mit. Scanne ihn wie vorgeschrieben zu Schichtbeginn und Schichtende.",
+
+    "Bring your employee ID badge, It's mandatory to scan the badge at the time of shift start and end.":
+      "Bringe deinen Mitarbeiterausweis mit. Es ist vorgeschrieben, den Ausweis zu Schichtbeginn und Schichtende zu scannen.",
 
     "Also Scanning ID badge at the time of leaving for break and return from the break on time is also mandatory.":
       "Scanne deinen Ausweis beim Verlassen des Arbeitsplatzes zur Pause und bei der Rückkehr, sofern es die Standortregel verlangt.",
@@ -93,6 +108,7 @@
       "Beginne nicht vor deiner Schicht und ändere deine Schicht nicht ohne Genehmigung.",
 
     // LESSON 02 - SAFETY BOOTS AND JACKET
+
     "Wear Safety Boots and Jacket":
       "Sicherheitsschuhe und Warnjacke tragen",
 
@@ -116,6 +132,7 @@
       "Eine orange Warnjacke sorgt dafür, dass andere dich in stark frequentierten Lagerbereichen besser sehen.",
 
     "Site requirements": "Vorgaben am Standort",
+
     "Correct PPE is an entry requirement where your site rules specify it.":
       "Die vorgeschriebene PSA ist eine Zutrittsvoraussetzung, wenn die Standortregeln dies festlegen.",
 
@@ -170,6 +187,7 @@
       "PSA ersetzt weder sicheres Verhalten noch Schulungen oder das Befolgen von Anweisungen.",
 
     // LESSON 03 - WAREHOUSE WORKFLOW
+
     "Warehouse workflow": "Lagerabläufe",
     "Warehouse Workflow": "Lagerabläufe",
 
@@ -235,6 +253,7 @@
       "Melde Abweichungen, bevor die Waren deinen Arbeitsbereich verlassen.",
 
     // LESSON 04 - ACCURACY AND QUALITY
+
     "Accuracy & quality": "Genauigkeit und Qualität",
     "Accuracy & Quality": "Genauigkeit und Qualität",
 
@@ -281,6 +300,7 @@
       "Befolge das freigegebene Korrekturverfahren. Verheimliche niemals Fehler und erstelle keine unzulässigen Scans.",
 
     // LESSON 05 - BREAK / PAUSE TIMING
+
     "Adhere Break/Pause timing": "Pausenzeiten einhalten",
     "Adhere to Break / Pause Timing": "Pausenzeiten einhalten",
 
@@ -327,6 +347,7 @@
       "Frage deine Führungskraft oder die Personalabteilung, wie Pausen für deine konkrete Schicht geregelt und erfasst werden.",
 
     // LESSON 06 - GROWTH AND PROGRESS
+
     "Growth & Progress": "Entwicklung und Fortschritt",
 
     "Build confidence through safe practice, feedback, learning and asking for help.":
@@ -379,127 +400,267 @@
   };
 
 
-  // Create reverse dictionary for German -> English.
-  const DE_TO_EN = new Map(
-    Object.entries(EN_TO_DE).map(([english, german]) => [german, english])
-  );
+  /*
+  =======================================================
+  2. ORIGINAL TEXT STORAGE
 
-  // Preserve original text so switching languages repeatedly works.
+  English is the permanent source.
+  German is generated from the original English text.
+
+  This eliminates the reverse-translation problem.
+  =======================================================
+  */
+
   const originalText = new WeakMap();
+  const lastRenderedText = new WeakMap();
+
   const originalAttributes = new WeakMap();
+  const lastRenderedAttributes = new WeakMap();
 
 
   function getLanguage() {
-    return localStorage.getItem(LANGUAGE_KEY) === "de"
-      ? "de"
-      : "en";
+
+    try {
+      return localStorage.getItem(LANGUAGE_KEY) === "de"
+        ? "de"
+        : "en";
+    } catch (error) {
+      return "en";
+    }
+
   }
 
+
+  function saveLanguage(language) {
+
+    try {
+      localStorage.setItem(LANGUAGE_KEY, language);
+    } catch (error) {
+      console.warn("Could not save language preference:", error);
+    }
+
+  }
+
+
+  function normaliseText(text) {
+
+    return text
+      .replace(/\u00a0/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+  }
+
+
+  /*
+  =======================================================
+  3. TRANSLATE TEXT NODES
+  =======================================================
+  */
 
   function translateTextNode(node, language) {
 
+    const currentText = node.nodeValue;
+
+    // Detect changes made by other scripts.
+    if (
+      lastRenderedText.has(node) &&
+      currentText !== lastRenderedText.get(node)
+    ) {
+
+      originalText.set(node, currentText);
+
+    }
+
+    // Save original English text.
     if (!originalText.has(node)) {
-      originalText.set(node, node.nodeValue);
+
+      originalText.set(node, currentText);
+
     }
 
     const original = originalText.get(node);
-    const trimmed = original.trim();
 
-    if (!trimmed) return;
+    const key = normaliseText(original);
 
-    const dictionary = language === "de"
-      ? EN_TO_DE
-      : DE_TO_EN;
+    if (!key) return;
 
-    const translated = dictionary[trimmed];
+    let result = original;
 
-    if (translated !== undefined) {
-      node.nodeValue = original.replace(trimmed, translated);
-    } else {
-      node.nodeValue = original;
+    if (language === "de") {
+
+      const translated = EN_TO_DE[key];
+
+      if (translated !== undefined) {
+
+        const leading = original.match(/^\s*/)[0];
+        const trailing = original.match(/\s*$/)[0];
+
+        result = leading + translated + trailing;
+
+      }
+
     }
+
+    // English restores the original text directly.
+    node.nodeValue = result;
+
+    lastRenderedText.set(node, result);
+
   }
 
+
+  /*
+  =======================================================
+  4. TRANSLATE HTML ATTRIBUTES
+  =======================================================
+  */
 
   function translateAttribute(element, attribute, language) {
 
     let saved = originalAttributes.get(element);
 
     if (!saved) {
+
       saved = {};
+
       originalAttributes.set(element, saved);
+
+    }
+
+    let rendered = lastRenderedAttributes.get(element);
+
+    if (!rendered) {
+
+      rendered = {};
+
+      lastRenderedAttributes.set(element, rendered);
+
+    }
+
+    const currentValue = element.getAttribute(attribute);
+
+    // Detect changes made by other scripts.
+    if (
+      attribute in rendered &&
+      currentValue !== rendered[attribute]
+    ) {
+
+      saved[attribute] = currentValue;
+
     }
 
     if (!(attribute in saved)) {
-      saved[attribute] = element.getAttribute(attribute);
+
+      saved[attribute] = currentValue;
+
     }
 
     const original = saved[attribute];
 
-    if (!original) return;
+    if (original === null) return;
 
-    const trimmed = original.trim();
+    const key = normaliseText(original);
 
-    const dictionary = language === "de"
-      ? EN_TO_DE
-      : DE_TO_EN;
+    let result = original;
 
-    const translated = dictionary[trimmed];
+    if (language === "de" && EN_TO_DE[key] !== undefined) {
 
-    element.setAttribute(
-      attribute,
-      translated !== undefined ? translated : original
-    );
+      result = EN_TO_DE[key];
+
+    }
+
+    element.setAttribute(attribute, result);
+
+    rendered[attribute] = result;
+
   }
 
 
+  /*
+  =======================================================
+  5. TRANSLATE COMPLETE PAGE
+  =======================================================
+  */
+
   function translatePage(language) {
 
+    language = language === "de" ? "de" : "en";
+
+    if (!document.body) return;
+
     const walker = document.createTreeWalker(
+
       document.body,
+
       NodeFilter.SHOW_TEXT,
+
       {
+
         acceptNode(node) {
 
           const parent = node.parentElement;
 
           if (!parent) {
+
             return NodeFilter.FILTER_REJECT;
+
           }
 
           if (
+
             parent.closest(
               "script, style, noscript, textarea, code, pre"
             )
+
           ) {
+
             return NodeFilter.FILTER_REJECT;
+
           }
 
           return NodeFilter.FILTER_ACCEPT;
+
         }
+
       }
+
     );
+
 
     const nodes = [];
 
     while (walker.nextNode()) {
+
       nodes.push(walker.currentNode);
+
     }
 
     nodes.forEach(node => {
+
       translateTextNode(node, language);
+
     });
 
 
-    // Translate placeholders, titles and accessibility labels.
+    // Translate accessibility and input attributes.
+
     document.querySelectorAll(
+
       "[placeholder], [title], [aria-label]"
+
     ).forEach(element => {
 
       ["placeholder", "title", "aria-label"].forEach(attribute => {
 
         if (element.hasAttribute(attribute)) {
-          translateAttribute(element, attribute, language);
+
+          translateAttribute(
+            element,
+            attribute,
+            language
+          );
+
         }
 
       });
@@ -507,30 +668,53 @@
     });
 
 
-    // Update the document language.
+    // Update HTML language.
+
     document.documentElement.lang = language;
 
 
-    // Support both possible selector IDs.
+    // Update language selector.
+
     const selectors = [
+
       document.getElementById("lang"),
+
       document.getElementById("language")
+
     ].filter(Boolean);
 
+
     selectors.forEach(select => {
+
       select.value = language;
+
     });
 
 
-    // Notify other scripts that language has changed.
+    // Inform other scripts.
+
     document.dispatchEvent(
+
       new CustomEvent("wr:languagechange", {
-        detail: { language: language }
+
+        detail: {
+
+          language: language
+
+        }
+
       })
+
     );
 
   }
 
+
+  /*
+  =======================================================
+  6. CHANGE LANGUAGE
+  =======================================================
+  */
 
   function setLanguage(language) {
 
@@ -538,34 +722,48 @@
       ? "de"
       : "en";
 
-    localStorage.setItem(LANGUAGE_KEY, selected);
+    saveLanguage(selected);
 
     translatePage(selected);
+
   }
 
+
+  /*
+  =======================================================
+  7. INITIALISE LANGUAGE SYSTEM
+  =======================================================
+  */
 
   function initialise() {
 
     const selectors = [
+
       document.getElementById("lang"),
+
       document.getElementById("language")
+
     ].filter(Boolean);
 
 
     selectors.forEach(select => {
 
-      select.addEventListener("change", event => {
-        setLanguage(event.target.value);
+      select.addEventListener("change", function () {
+
+        setLanguage(this.value);
+
       });
 
     });
 
 
-    // Apply the previously selected language.
+    // Restore previously selected language.
+
     translatePage(getLanguage());
 
 
-    // Public API for other scripts.
+    // Public API.
+
     window.WarehouseReadyLanguage = {
 
       getLanguage: getLanguage,
@@ -576,8 +774,20 @@
 
     };
 
+
+    console.log(
+      "WarehouseReady language system loaded:",
+      getLanguage()
+    );
+
   }
 
+
+  /*
+  =======================================================
+  8. START
+  =======================================================
+  */
 
   if (document.readyState === "loading") {
 
