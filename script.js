@@ -29,7 +29,20 @@ const moduleKeys=["first-day","safety","workflow","quality","german","rights"];
 function completed(){try{return JSON.parse(localStorage.getItem("wr-completed")||"[]")}catch(e){return []}}
 function updateProgress(){const done=completed();$("progressText").textContent=`${done.length} / 6`; $("progressBar").style.width=(done.length/6*100)+"%";document.querySelectorAll(".module-card").forEach(c=>c.classList.toggle("completed",done.includes(c.dataset.module)));document.querySelectorAll(".module-card").forEach(c=>{const s=c.querySelector(".module-link");if(done.includes(c.dataset.module))s.textContent=lang==="de"?"✓ Erledigt · Lektion öffnen →":"✓ Completed · Open lesson →";});}
 function renderLesson(key){currentModule=key;const l=lessons[key];const i=lang==="de"?1:0;let html=`<h2>${l.title[i]}</h2><p>${l.intro[i]}</p>`;for(const s of l.sections){html+=`<h3>${s[i]}</h3><ul>${s[2].map(t=>`<li>${t}</li>`).join("")}</ul>`} $("lessonContent").innerHTML=html;$("lessonArea").hidden=false;const done=completed().includes(key);$("markComplete").textContent=done?(lang==="de"?"✓ Bereits erledigt":"✓ Completed"):(lang==="de"?"Als erledigt markieren ✓":"Mark as completed ✓");$("lessonStatus").textContent=done?(lang==="de"?"Fortschritt gespeichert":"Progress saved"):"";$("lessonArea").scrollIntoView({behavior:"smooth",block:"start"});}
-document.querySelectorAll(".module-card").forEach(c=>c.addEventListener("click",()=>renderLesson(c.dataset.module)));
+document.querySelectorAll(".module-card").forEach(c => {
+  c.addEventListener("click", () => {
+
+    // Lesson 01: Open the separate On Time Arrival webpage
+    if (c.dataset.module === "first-day") {
+      window.location.href = "./lesson-01.html";
+      return;
+    }
+
+    // Lessons 02–06: Keep existing functionality
+    renderLesson(c.dataset.module);
+
+  });
+});
 $("closeLesson").addEventListener("click",()=>{$("lessonArea").hidden=true;currentModule=null;});
 $("markComplete").addEventListener("click",()=>{if(!currentModule)return;let done=completed();if(!done.includes(currentModule))done.push(currentModule);localStorage.setItem("wr-completed",JSON.stringify(done));updateProgress();$("markComplete").textContent=lang==="de"?"✓ Erledigt":"✓ Completed";$("lessonStatus").textContent=lang==="de"?"Fortschritt gespeichert":"Progress saved";});
 function renderQuiz(){const q=quiz[quizIndex];$("quizCount").textContent=(lang==="de"?"Frage ":"Question ")+(quizIndex+1)+(lang==="de"?" von 5":" of 5");$("quizScore").textContent=quizIndex===quiz.length-1&&answered?(lang==="de"?`Ergebnis: ${score}/5`:`Score: ${score}/5`):"";$("quizBar").style.width=((quizIndex+1)/quiz.length*100)+"%";$("questionText").textContent=q.q[lang==="de"?1:0];$("answerOptions").innerHTML="";$("feedback").textContent="";$("nextQuestion").disabled=true;$("nextQuestion").textContent=quizIndex===quiz.length-1?(lang==="de"?"Ergebnis ansehen →":"See result →"):(lang==="de"?"Nächste Frage →":"Next question →");answered=false;q.a.forEach((a,i)=>{const b=document.createElement("button");b.className="answer-option";b.textContent=a[lang==="de"?1:0];b.addEventListener("click",()=>chooseAnswer(i));$("answerOptions").appendChild(b);});}
