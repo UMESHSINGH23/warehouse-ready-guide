@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive safety-first induction for new warehouse starters: PPE, entrance check-in, written attendance and badge scanning.">
+  <title>Safety First | WarehouseReady</title>
+  <link rel="stylesheet" href="safety-first.css">
+  <link rel="stylesheet" href="safety-first-3d-worker.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="WarehouseReady home"><span class="brand-mark">WR</span><span>Warehouse<span class="brand-light">Ready</span></span></a>
+    <nav class="top-actions" aria-label="Page controls">
+      <a class="home-link" href="index.html" data-en="← Home" data-de="← Startseite">← Home</a>
+      <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language">Deutsch</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p class="eyebrow" data-en="SAFETY-FIRST INDUCTION · STEP 01" data-de="SICHERHEITSEINWEISUNG · SCHRITT 01">SAFETY-FIRST INDUCTION · STEP 01</p>
+      <h1 data-en="Ready before you enter." data-de="Gut vorbereitet, bevor du eintrittst.">Ready before you enter.</h1>
+      <p class="intro-copy" data-en="Follow the arrival routine: wear the required PPE, register your attendance using your site's approved method, and enter only when you are cleared to do so." data-de="Folge der Ankunftsroutine: Trage die vorgeschriebene Schutzausrüstung, erfasse deine Anwesenheit mit der zugelassenen Methode deines Standorts und betrete den Arbeitsbereich erst, wenn du dazu berechtigt bist.">Follow the arrival routine: wear the required PPE, register your attendance using your site's approved method, and enter only when you are cleared to do so.</p>
+    </section>
+
+    <section class="ppe-showcase ppe-showcase-local" aria-label="Personal protective equipment examples">
+      <div class="ppe-showcase-heading"><p class="eyebrow" data-en="CHECK YOUR EQUIPMENT" data-de="PRÜFE DEINE AUSRÜSTUNG">CHECK YOUR EQUIPMENT</p><h2 data-en="Safety boots and high-visibility vest" data-de="Sicherheitsschuhe und Warnweste">Safety boots and high-visibility vest</h2><p data-en="Inspect the examples below. Always wear the PPE approved for your own warehouse and work area." data-de="Sieh dir die Beispiele unten an. Trage immer die für dein Lager und deinen Arbeitsbereich zugelassene Schutzausrüstung.">Inspect the examples below. Always wear the PPE approved for your own warehouse and work area.</p></div>
+      <figure class="ppe-image-frame"><img src="safety-ppe.png" alt="Black industrial safety boots beside an orange high-visibility vest with silver reflective strips" loading="eager"><figcaption><span><strong data-en="Safety boots" data-de="Sicherheitsschuhe">Safety boots</strong><small data-en="Check toe protection, sole, laces and fit." data-de="Prüfe Zehenschutz, Sohle, Schnürsenkel und Passform.">Check toe protection, sole, laces and fit.</small></span><span><strong data-en="Orange high-visibility vest" data-de="Orange Warnweste">Orange high-visibility vest</strong><small data-en="Check reflective strips and secure fit." data-de="Prüfe Reflexstreifen und sicheren Sitz.">Check reflective strips and secure fit.</small></span></figcaption></figure>
+      <p class="ppe-credit" data-en="Illustrative equipment image only. Follow your site's PPE requirements." data-de="Nur eine beispielhafte Ausrüstungsabbildung. Beachte die PSA-Vorgaben deines Standorts.">Illustrative equipment image only. Follow your site's PPE requirements.</p>
+    </section>
+
+    <section class="scene-card" aria-label="Animated warehouse entrance training scene">
+      <div class="scene-head"><span class="live-dot"></span><span data-en="ARRIVAL SIMULATION" data-de="ANKUNFTSSIMULATION">ARRIVAL SIMULATION</span><span class="scene-tag" data-en="DEMO · NOT A REAL CHECK-IN" data-de="DEMO · KEINE ECHTE ZEITERFASSUNG">DEMO · NOT A REAL CHECK-IN</span></div>
+      <div class="scene" id="scene">
+        <div class="sky-glow"></div>
+        <div class="warehouse-back"><div class="roof-line"></div><div class="warehouse-sign"><span class="sign-light"></span><span data-en="WAREHOUSE ENTRANCE" data-de="LAGEREINGANG">WAREHOUSE ENTRANCE</span></div><div class="door-frame"><div class="door-left"></div><div class="door-right"></div><div class="door-inner"><span data-en="AUTHORISED STAFF" data-de="NUR BEFUGTES PERSONAL">AUTHORISED STAFF</span></div></div><div class="window-row"><i></i><i></i><i></i><i></i></div></div>
+        <div class="floor"></div><div class="floor-line line-one"></div><div class="floor-line line-two"></div>
+        <div class="checkin-kiosk"><div class="kiosk-top"><span class="kiosk-light"></span><span data-en="CHECK-IN" data-de="ANMELDUNG">CHECK-IN</span></div><div class="kiosk-screen"><div class="screen-user">●</div><span class="screen-text" data-en="READY" data-de="BEREIT">READY</span><div class="scan-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="scanner"><span class="scanner-beam"></span></div><div class="kiosk-foot"></div></div>
+        <div class="sign-in-board"><div class="board-title" data-en="ATTENDANCE SHEET" data-de="ANWESENHEITSLISTE">ATTENDANCE SHEET</div><div class="paper-row"><span>08:00</span><span class="scribble"></span></div><div class="paper-row"><span>08:04</span><span class="scribble short"></span></div><div class="paper-row active-row"><span>08:07</span><span class="write-line"></span></div><div class="board-clip"></div></div>
+        <div class="worker" id="worker" aria-label="Animated warehouse worker wearing detailed steel-toe safety boots, work trousers and an orange high-visibility vest"><div class="worker-shadow"></div><div class="worker-head"><div class="hair"></div><div class="ear"></div><div class="face"><i class="eye eye-left"></i><i class="eye eye-right"></i><i class="nose"></i><i class="smile"></i></div><div class="hard-hat"><span></span></div></div><div class="neck"></div><div class="torso"><div class="vest"><div class="vest-neck"></div><div class="vest-stripe stripe-top"></div><div class="vest-stripe stripe-bottom"></div><div class="vest-zip"></div><div class="vest-pocket"></div></div></div><div class="arm arm-left"><div class="glove"></div></div><div class="arm arm-right"><div class="glove"></div></div><div class="leg leg-left"><div class="trouser-cuff"></div><div class="boot"><span class="boot-collar"></span><span class="boot-tongue"></span><span class="boot-eyelets"></span><span class="boot-laces"></span><span class="boot-toecap"></span><span class="boot-sole"></span><span class="boot-tread"></span></div></div><div class="leg leg-right"><div class="trouser-cuff"></div><div class="boot"><span class="boot-collar"></span><span class="boot-tongue"></span><span class="boot-eyelets"></span><span class="boot-laces"></span><span class="boot-toecap"></span><span class="boot-sole"></span><span class="boot-tread"></span></div></div><div class="badge" id="workerBadge">ID</div></div>
+        <div class="scan-flash" id="scanFlash"><span>✓</span><b data-en="DEMO SCAN COMPLETE" data-de="DEMO-SCAN ABGESCHLOSSEN">DEMO SCAN COMPLETE</b></div>
+        <div class="scene-caption" id="sceneCaption" aria-live="polite" data-en="1. Check your PPE before entering." data-de="1. Prüfe deine Schutzausrüstung vor dem Eintritt.">1. Check your PPE before entering.</div>
+      </div>
+      <div class="scene-controls"><button class="button primary" id="replayButton" type="button" data-en="▶ Replay animation" data-de="▶ Animation wiederholen">▶ Replay animation</button><div class="scene-progress"><span id="sceneStep">STEP 1 OF 4</span><div class="progress-track"><div id="progressFill"></div></div></div></div>
+    </section>
+
+    <section class="routine-section">
+      <div class="section-heading"><p class="eyebrow" data-en="THE ARRIVAL ROUTINE" data-de="ABLAUF BEI DER ANKUNFT">THE ARRIVAL ROUTINE</p><h2 data-en="Four checks before your shift" data-de="Vier Schritte vor deiner Schicht">Four checks before your shift</h2><p data-en="Your employer's local instructions always take priority. The methods shown here are illustrative only." data-de="Die Anweisungen deines Arbeitgebers vor Ort haben immer Vorrang. Die hier gezeigten Methoden dienen nur zur Veranschaulichung.">Your employer's local instructions always take priority. The methods shown here are illustrative only.</p></div>
+      <div class="routine-grid">
+        <article class="routine-card"><span class="routine-number">01</span><div class="routine-icon">🦺</div><h3 data-en="Wear your PPE" data-de="Schutzausrüstung tragen">Wear your PPE</h3><p data-en="Put on the required high-visibility orange vest and safety boots. Check that they fit and are in good condition." data-de="Ziehe die vorgeschriebene orange Warnweste und Sicherheitsschuhe an. Prüfe Sitz und Zustand.">Put on the required high-visibility orange vest and safety boots. Check that they fit and are in good condition.</p></article>
+        <article class="routine-card"><span class="routine-number">02</span><div class="routine-icon">📝</div><h3 data-en="Written attendance" data-de="Schriftliche Anwesenheit">Written attendance</h3><p data-en="If your site requires a sign-in sheet, enter your own details accurately and follow the posted instructions. Never sign for someone else." data-de="Wenn dein Standort eine Anwesenheitsliste nutzt, trage deine eigenen Angaben korrekt ein. Unterschreibe niemals für andere.">If your site requires a sign-in sheet, enter your own details accurately and follow the posted instructions. Never sign for someone else.</p></article>
+        <article class="routine-card"><span class="routine-number">03</span><div class="routine-icon">▦</div><h3 data-en="Scan your badge" data-de="Ausweis scannen">Scan your badge</h3><p data-en="If your site uses an attendance terminal, scan your own badge and wait for confirmation. Do not share badges or bypass the system." data-de="Wenn ein Zeiterfassungsterminal verwendet wird, scanne deinen eigenen Ausweis und warte auf die Bestätigung. Teile keine Ausweise und umgehe das System nicht.">If your site uses an attendance terminal, scan your own badge and wait for confirmation. Do not share badges or bypass the system.</p></article>
+        <article class="routine-card"><span class="routine-number">04</span><div class="routine-icon">🚪</div><h3 data-en="Enter when authorised" data-de="Nur mit Berechtigung eintreten">Enter when authorised</h3><p data-en="Follow access controls, pedestrian routes and your supervisor's directions. Ask if your attendance does not register or you are unsure where to go." data-de="Beachte Zugangskontrollen, Fußwege und Anweisungen deiner Führungskraft. Frage nach, wenn die Zeiterfassung nicht funktioniert oder du unsicher bist.">Follow access controls, pedestrian routes and your supervisor's directions. Ask if your attendance does not register or you are unsure where to go.</p></article>
+      </div>
+    </section>
+
+    <section class="reminder"><div class="reminder-icon">!</div><div><h2 data-en="Important: this is a practice simulation" data-de="Wichtig: Dies ist eine Übungssimulation">Important: this is a practice simulation</h2><p data-en="The attendance sheet and badge scanner are visual examples only. This page does not record attendance, scan a real badge or replace your workplace induction. Use only the process approved at your warehouse." data-de="Die Anwesenheitsliste und der Scanner sind nur visuelle Beispiele. Diese Seite erfasst keine Arbeitszeit, scannt keinen echten Ausweis und ersetzt keine betriebliche Einweisung. Nutze nur den in deinem Lager freigegebenen Ablauf.">The attendance sheet and badge scanner are visual examples only. This page does not record attendance, scan a real badge or replace your workplace induction. Use only the process approved at your warehouse.</p></div></section>
+  </main>
+  <footer><span>WarehouseReady</span><span data-en="Independent learning resource · Not affiliated with or endorsed by Amazon." data-de="Unabhängige Lernhilfe · Nicht mit Amazon verbunden oder von Amazon empfohlen.">Independent learning resource · Not affiliated with or endorsed by Amazon.</span><a href="index.html" data-en="Back to learning path ↑" data-de="Zurück zum Lernpfad ↑">Back to learning path ↑</a></footer>
+  <script src="safety-first.js"></script>
+</body>
+</html>
