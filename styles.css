@@ -20,3 +20,412 @@
 body.dark .ppe-showcase{background:var(--surface)}
 @media(max-width:850px){.ppe-showcase{max-width:650px;width:100%;justify-self:start}.ppe-product-image{aspect-ratio:3/2}}
 @media(max-width:540px){.hero-buttons .hero-cta{min-height:54px;padding:15px 20px;font-size:15px;flex:1 1 auto}.ppe-showcase{padding:13px;border-radius:17px}.ppe-caption{gap:8px}.ppe-caption strong{font-size:12px}.ppe-product-image{aspect-ratio:1.2/1;object-fit:cover}}
+/* =========================================
+   WAREHOUSE READY — PROFESSIONAL UI UPDATE
+   ========================================= */
+
+:root {
+  --font-main: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --text-primary: #172033;
+  --text-secondary: #647084;
+
+  --brand-color: #f5a900;
+  --brand-hover: #df9700;
+
+  --card-radius: 18px;
+  --button-radius: 10px;
+
+  --shadow-soft: 0 8px 28px rgba(20, 35, 60, 0.07);
+}
+
+/* Overall typography */
+
+body {
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.7;
+  letter-spacing: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings */
+
+h1 {
+  font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+  line-height: 1.15;
+  font-weight: 750;
+  letter-spacing: -1.5px;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1.25;
+  font-weight: 720;
+  letterletter-spacing: -0.8px;
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 650;
+}
+
+/* Paragraphs */
+
+p {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Navigation bar */
+
+.topbar {
+  min-height: 76px;
+  padding: 14px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-size: 1.15rem;
+  font-weight: 750;
+  letter-spacing: -0.4px;
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+}
+
+/* Hero section */
+
+.hero {
+  padding: 80px 5% 75px;
+  gap: 60px;
+}
+
+.hero-copy {
+  max-width: 650px;
+}
+
+.hero-copy > p {
+  max-width: 600px;
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  margin-top: 20px;
+}
+
+/* Buttons */
+
+.button {
+  min-height: 48px;
+  padding: 13px 22px;
+  font-size: 0.95rem;
+  font-weight: 650;
+  border-radius: var(--button-radius);
+  transition: transform 0.2s ease,
+              box-shadow 0.2s ease,
+              background 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  box-shadow: 0 4px 12px rgba(245, 169, 0, 0.2);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+/* PPE showcase */
+
+.ppe-showcase {
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: var(--shadow-soft);
+}
+
+.ppe-product-image {
+  width: 100%;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.ppe-caption {
+  margin-top: 16px;
+  gap: 18px;
+}
+
+.ppe-caption strong {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Process strip */
+
+.stats-row {
+  padding: 28px 5%;
+}
+
+.stats-row strong {
+  font-size: 1.05rem;
+  font-weight: 720;
+}
+
+.stats-row span {
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* Main sections */
+
+.section {
+  padding: 85px 5%;
+}
+
+.section-heading {
+  margin-bottom: 38px;
+}
+
+.section-heading h2 {
+  margin-top: 12px;
+}
+
+.section-heading p {
+  max-width: 460px;
+  font-size: 0.95rem;
+}
+
+/* Learning module cards */
+
+.module-grid {
+  gap: 22px;
+}
+
+.module-card {
+  padding: 28px;
+  min-height: 230px;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.module-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 35px rgba(20, 35, 60, 0.12);
+}
+
+.module-title {
+  font-size: 1.15rem;
+  line-height: 1.45;
+  font-weight: 700;
+}
+
+.module-desc {
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+.module-link {
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+/* Safety section */
+
+.safety-banner {
+  padding: 30px;
+  border-radius: 18px;
+}
+
+.safety-banner h2 {
+  margin: 12px 0;
+}
+
+.safety-banner p {
+  line-height: 1.8;
+}
+
+.safety-grid {
+  gap: 22px;
+  margin-top: 30px;
+}
+
+.safety-grid article {
+  padding: 26px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+}
+
+.safety-grid article h3 {
+  margin: 14px 0;
+}
+
+.safety-grid article p {
+  font-size: 0.95rem;
+}
+
+/* Quiz */
+
+.quiz-card {
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+}
+
+.quiz-card h3 {
+  font-size: 1.35rem;
+  line-height: 1.65;
+  margin: 25px 0;
+}
+
+.answer-options {
+  gap: 14px;
+}
+
+.answer-options button {
+  padding: 16px 20px;
+  font-size: 0.96rem;
+  line-height: 1.6;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+/* Glossary */
+
+.glossary {
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.glossary > div {
+  padding: 20px 24px;
+  line-height: 1.75;
+}
+
+.glossary strong {
+  font-size: 1rem;
+  font-weight: 750;
+}
+
+.glossary span {
+  font-size: 0.95rem;
+}
+
+/* Final CTA */
+
+.final-cta {
+  padding: 65px 5%;
+}
+
+.final-cta h2 {
+  margin: 12px 0;
+}
+
+.final-cta p {
+  font-size: 1rem;
+}
+
+/* Footer */
+
+footer {
+  padding: 28px 5%;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+/* Responsive layout */
+
+@media (max-width: 900px) {
+
+  .hero {
+    padding: 55px 5%;
+    gap: 35px;
+  }
+
+  .section {
+    padding: 65px 5%;
+  }
+
+  .module-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stats-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  body {
+    font-size: 15px;
+  }
+
+  .topbar {
+    min-height: 65px;
+    padding: 12px 5%;
+  }
+
+  .hero {
+    padding: 40px 5%;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-buttons .button {
+    text-align: center;
+    width: 100%;
+  }
+
+  .module-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 50px 5%;
+  }
+
+  .module-card {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .quiz-card {
+    padding: 22px;
+  }
+
+  .safety-banner {
+    padding: 22px;
+  }
+
+  .final-cta {
+    padding: 45px 5%;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
