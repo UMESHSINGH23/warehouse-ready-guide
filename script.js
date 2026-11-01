@@ -300,7 +300,7 @@ q:[
 "Welche dieser Angaben ist ebenfalls eine PDEQ-Etikettennummer?"
 ],
 a:[
-["PDEQ 010","PDEQ 010"],
+["PDEQ 001","PDEQ 001"],
 ["MHG9","MHG9"],
 ["Rollies","Rollies"]
 ],
