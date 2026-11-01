@@ -833,11 +833,11 @@ why:[
 
 {
 q:[
-"What should you do if you print more labels than required?",
+"What should you do if printed labels are more/less than quantity?",
 "Was solltest du tun, wenn du mehr Etiketten als erforderlich gedruckt hast?"
 ],
 a:[
-["Discard or handle them according to the authorised workplace procedure.","Sie gemäß dem autorisierten betrieblichen Verfahren entsorgen oder behandeln."],
+["Inform Supervisor.","Sie gemäß dem autorisierten betrieblichen Verfahren entsorgen oder behandeln."],
 ["Use them for another order without checking.","Sie ohne Prüfung für einen anderen Auftrag verwenden."],
 ["Hide them in your workstation.","Sie an deinem Arbeitsplatz verstecken."]
 ],
