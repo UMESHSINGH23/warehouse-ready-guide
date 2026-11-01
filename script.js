@@ -306,8 +306,8 @@ a:[
 ],
 correct:0,
 why:[
-"PDEQ 010 is one of the PDEQ label numbers used for packaged boxes.",
-"PDEQ 010 ist eine der PDEQ-Etikettennummern für verpackte Kartons."
+"PDEQ 001 only is one of the PDEQ label numbers used for packaged boxes.",
+"PDEQ 010 nur ist eine der PDEQ-Etikettennummern für verpackte Kartons."
 ]
 },
 
