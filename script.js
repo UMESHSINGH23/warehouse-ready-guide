@@ -723,11 +723,11 @@ why:[
 
 {
 q:[
-"What should you do when empty alcohol cartons are needed in the pick zone?",
-"Was solltest du tun, wenn im Pickbereich leere Alkoholkartons benötigt werden?"
+"What should you do when empty alcohol cartons are lying in the pick zone?",
+"Was sollten Sie tun, wenn leere Alkoholkartons im Kommissionierbereich liegen?"
 ],
 a:[
-["Pick the required empty cartons from the designated area according to the process.","Die benötigten leeren Kartons gemäß dem vorgesehenen Ablauf aus dem dafür bestimmten Bereich holen."],
+["Pick the required empty cartons from the designated area and discard.","Nehmen Sie die benötigten leeren Kartons aus dem dafür vorgesehenen Bereich und entsorgen Sie sie."],
 ["Use damaged cartons without checking.","Beschädigte Kartons ohne Prüfung verwenden."],
 ["Take cartons from any location without checking.","Kartons ohne Prüfung von irgendeinem Ort nehmen."]
 ],
