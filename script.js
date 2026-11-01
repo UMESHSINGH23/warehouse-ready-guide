@@ -344,8 +344,8 @@ a:[
 ],
 correct:2,
 why:[
-"BER8 is a label number used for packaged boxes in your warehouse.",
-"BER8 ist eine Etikettennummer für verpackte Kartons in deinem Lager."
+"PDEQ 007is a label number used for packaged boxes in your warehouse.",
+"PDEQ 007ist eine Etikettennummer für verpackte Kartons in deinem Lager."
 ]
 },
 
