@@ -283,7 +283,7 @@ q:[
 "Welche der folgenden Angaben ist ein Beispiel für eine PDEQ-Etikettennummer außer PDEQ 001?"
 ],
 a:[
-["PDEQ 003","PDEQ 003"],
+["PDEQ 001 only","PDEQ 001 only"],
 ["BER8","BER8"],
 ["CDE9","CDE9"]
 ],
